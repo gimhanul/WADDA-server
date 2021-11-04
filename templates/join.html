@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<title>왔다 아이가!</title>
+</head>
+<body>
+	<div class="main-container">
+		<div class="main-wrap">
+		<header>
+			<div class="logo-wrap">
+				<h1>회원가입</h1>
+			</div>
+		</header>
+		
+		<form class="login-input-section-wrap" name="joinIn" method="post">
+			{% csrf_token %}
+			<div class="login-input-wrap">	
+				<input placeholder="이름" id="name" name="name" type="text"></input>
+			</div>
+			<div class="login-input-wrap input-box-wrap">	
+				<input placeholder="이메일" id="email" name="email" type="email"></input>
+			</div>
+			<div class="login-input-wrap input-box-wrap">	
+				<input placeholder="비밀번호" id="password" name="password1" type="password"></input>
+			</div>
+			<div class="login-input-wrap input-box-wrap">	
+				<input placeholder="비밀번호 확인" id="checkpw" name="password2" type="password"></input>
+			</div>
+			<div class="login-button-wrap">
+				<input type="submit" name="submit" value="회원가입"> 
+			</div>
+			</div>
+		</form>
+		</div>
+	</div>
+</body>

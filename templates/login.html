@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<title>왔다 아이가!</title>
+</head>
+<body>
+	<form name="login" method="post">
+	{% csrf_token %}
+	<div class="main-container">
+		<div class="main-wrap">
+		<header>
+			<div class="logo-wrap">
+				<h1>로그인</h1>
+			</div>
+		</header>
+		<section class="login-input-section-wrap">
+			<div class="login-input-wrap">	
+				<input name="email" placeholder="이메일" type="email"></input>
+			</div>
+			<div class="login-input-wrap password-wrap">	
+				<input name="password" placeholder="비밀번호" type="password"></input>
+			</div>
+			<div class="login-button-wrap">
+				<input type="submit" name="" value="로그인"> 
+			</div>
+
+			<!--
+			<div class="login-stay-sign-in">	
+				<div class="left-text">
+					<a target="_blank" id="join" href="wadda_dongei.html">회원가입</a>
+				</div>
+				
+				<div class="right-text">
+					<a target="_blank" id="idinquiry" href="">아이디 찾기</a>
+					<span class="bar" aria-hidden="true">|</span>
+					<a target="_blank" id="pwinquiry" href="">비밀번호 찾기</a>
+				</div>
+                
+			</div>
+		-->
+		</section>
+		
+		</div>
+	</div>
+	</form>
+</body>
