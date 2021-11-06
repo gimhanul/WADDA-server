@@ -40,7 +40,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user.apps.UserConfig',
+    'main.apps.MainConfig',
+    'taggit.apps.TaggitAppConfig',
+    'taggit_templatetags2',
 ]
+
+TAGGIT_CASE_INSENTIVE = True
+TAGGIT_LIMIT = 100
 
 AUTH_USER_MODEL = 'user.User'
 
