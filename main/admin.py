@@ -1,17 +1,14 @@
 from django.contrib import admin
-from .models import Sight, SightImages
+from .models import Sight
 
-class PhotoInline(admin.TabularInline):
-    model = SightImages
 
 class SightAdmin(admin.ModelAdmin):
-    list_display = ('name', 'tags', 'address', 'tel', 'time', 'closed', 'description')
-    inlines = [PhotoInline, ]
+    list_display = ('name', 'tags', 'address', 'tel', 'time', 'closed', 'description', 'image')
 
     fieldsets = (
         (None, {'fields': ('name',)}),
         ('tags', {'fields': ('tags',)}),
-        ('Info', {'fields': ('address', 'tel', 'time', 'closed', 'description')}),
+        ('Info', {'fields': ('address', 'tel', 'time', 'closed', 'description', 'image')}),
     )
     search_fields = ['name']
 

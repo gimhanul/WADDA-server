@@ -1,9 +1,12 @@
 from django.db import models
-from django.db.models.fields.related import ForeignKey
 from taggit.managers import TaggableManager
 from django.db.models.deletion import CASCADE
 
-
+#Banner
+class Banner(models.Model):
+    bannerImage = models.ImageField(upload_to='banner/')
+    bannerText = models.CharField(max_length=20)
+    to = models.URLField()
 
 #Question and Choice model
 class Question(models.Model):
@@ -31,10 +34,7 @@ class Sight(models.Model):
     tel = models.CharField(max_length=14)
     closed = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
+    image = models.ImageField(upload_to='sights/', null=True)
 
     def __str__(self):
         return self.name
-    
-class SightImages(models.Model):
-    sight = ForeignKey(Sight, on_delete=CASCADE)
-    image = models.ImageField(upload_to='sights/')

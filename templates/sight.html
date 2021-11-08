@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<title>왔다 아이가!</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="image-section">
+            <div class="tour-sight-image">
+                <div class="image">
+                    <img src="{{ s.image.url }}" id="sMainImg">
+                    <div class="image-text">
+                        <h2 id="sName">{{ s.name }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info-section">
+            <div id="sTags">
+                {% for tag in s.tags.all %}
+                #{{ tag.name }}
+                {% endfor %}
+            </div>
+            <div id="sAddress"><img src="{% static 'images/location.png' %}">{{ s.address }}</div>
+            <div id="sNumber"><img src="{% static 'images/phone.png' %}">{{ s.tel }}</div>
+            <div id="sTime"><img src="{% static 'images/time.png' %}">{{ s.time }}</div>
+            <div id="sOpen"><img src="{% static 'images/calendar.png' %}">{{ s.closed }}</div>
+            <div id="sInfo">{{ s.description }}</div>
+        </div>
+        <!-- 이 기능 킵
+        <div class="info-image-section">
+            <div id="sImg">
+                <h3>업로드 된 사진</h3>
+
+            </div>
+        </div>
+        -->
+    </div>
+</body>
+</html>
