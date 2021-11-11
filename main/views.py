@@ -7,7 +7,7 @@ import datetime
 def weather():
     weather_url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'    
     
-    with open('secret.json') as secretkeyJson:
+    with open('secrets.json') as secretkeyJson:
         secretkey = json.load(secretkeyJson)
     service_key = secretkey
 
@@ -29,7 +29,7 @@ def weather():
     elif now.hour<17 or (now.hour==17 and now.minute<=10): # 14시 11분~17시 10분 사이
         base_time="1400"
     elif now.hour<20 or (now.hour==20 and now.minute<=10): # 17시 11분~20시 10분 사이
-        base_time="1700" 
+        base_time="1700"
     elif now.hour<23 or (now.hour==23 and now.minute<=10): # 20시 11분~23시 10분 사이
         base_time="2000"
     else: # 23시 11분~23시 59분
