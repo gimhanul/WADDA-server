@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os, json
-from django.core import exceptions
 from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -102,7 +101,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'wadda', # Database 이름
         'USER': 'hanul', # 데이터베이스에서 사용할 계정
-        'PASSWORD': 'hanul', # 계정의 비밀번호
+        'PASSWORD': get_secret("DB_PW"), # 계정의 비밀번호
         'HOST': 'localhost', # 데이테베이스 주소
         'PORT': '3306', # 데이터베이스 포트, mysql 디폴트값은 3306
         'OPTIONS': {

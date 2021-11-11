@@ -2,14 +2,15 @@ from django.shortcuts import render
 from .models import Sight
 import json
 import datetime
-
+from django.core.exceptions import ImproperlyConfigured
+import requests
 
 def weather():
     weather_url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'    
     
-    with open('secrets.json') as secretkeyJson:
-        secretkey = json.load(secretkeyJson)
-    service_key = secretkey
+    with open('secrets.json') as secret_file:
+        secretkey = json.load(secret_file)
+    service_key = secretkey["SERVICE_KEY"]
 
     now = datetime.datetime.now()
     #(년, 월, 일, 시, 분, 초, 머있음또)
@@ -35,6 +36,21 @@ def weather():
     else: # 23시 11분~23시 59분
         base_time="2300"
 
+    payload = "serviceKey=" + service_key + "&" +\
+        "numOfRows" + 290 + "&" +\
+        "dataType=json" + "&" +\
+        "base_date=" + base_date + "&" +\
+        "base_time=" + base_time + "&" +\
+        "nx=" + nx + "&" +\
+        "ny=" + ny
+    
+    res = requests.get(weather_url + payload)
+
+    items = res.json().get('response').get('body').get('items')
+
+    data = dict()
+    for item in items['item']:
+        print('item')
 
 
 
