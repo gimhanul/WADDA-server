@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from .models import Sight
+from .models import Sight, Banner
 import json
 import datetime
 from django.core.exceptions import ImproperlyConfigured
-import requests
 
 def weather():
     weather_url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'    
@@ -56,6 +55,24 @@ def weather():
 
 def q(request, question_id):
     return
+
+def schedule(request):
+    return
+
+def box(request):
+    return
+
+def home(request):
+    banner = Banner.objects.all()
+    #weather = weather()
+    context = {
+        'banner' : banner, 
+    }
+    return render(request, 'home.html', context)
+
+
+def sights(request):
+    return render(request, 'sights.html')
 
 def sight(request, sight_id):
     sight = Sight.objects.get(id = sight_id)

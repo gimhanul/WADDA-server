@@ -1,3 +1,4 @@
+from os import name
 from django.contrib import admin
 from django.urls import path
 from user import views as user
@@ -13,6 +14,10 @@ urlpatterns = [
     path('wadda/', user.wadda, name="wadda"),
     path('q/<int:question_id>/', main.q, name="q"),
     path('sight/<int:sight_id>/', main.sight, name="sight"),
+    path('home/', main.home, name="home"),
+    path('schedule/', main.schedule, name="schedule"),
+    path('box/', main.box, name="box"),
+    path('sights/', main.sights, name="sights"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

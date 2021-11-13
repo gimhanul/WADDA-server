@@ -1,0 +1,17 @@
+img {
+    width: 200px;
+    border-radius: 10px;
+}
+
+#babar {
+    width: 35px;
+    height: 35px;
+    border-radius: 0px;
+}
+
+#dv {
+    position: fixed;
+    top: 70px;
+    height: 100%;
+    width: 33.3%;
+}

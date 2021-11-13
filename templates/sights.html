@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>관광자 나열 목록</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bar.css' %}">
+    </head>
+    <body>
+        <h1>관광지</h1>
+        <p class = "first">최근 뜨고 있는 곳<p>
+            <p>
+                <img src = "..static/image/sights_1.png">
+                <img src = "..static/image/sights_1.png">
+                <img src = "..static/image/sights_1.png">
+            </p>
+        <br>
+        <p class = "second">10대 사용자가 좋아하는 곳</p>
+        <p>
+            <img src = "..static/image/sights_1.png">
+            <img src = "..static/image/sights_1.png">
+            <img src = "..static/image/sights_1.png">
+        </p>
+        
+        <p class = "third">여성 사용자가 자주 가는 곳</p>
+        <p>
+            <img src = "..static/image/sights_2.png">
+            <img src = "..static/image/sights_2.png">
+            <img src = "..static/image/sights_2.png">
+        </p>
+
+        <div class="bottom_menu">
+            <div>
+                <a href="{% url 'schedule' %}"><img src="{% static 'images/b-date.png' %}"></a>
+            </div>
+            <div>
+                <a href="{% url 'home' %}"><img src="{% static 'images/b-home.png' %}"></a>
+            </div>
+            <div>
+                <a href="{% url 'sights' %}"><img src="{% static 'images/b-filled-loca.png' %}"></a>
+            </div>
+            <div>
+                <a href="{% url 'box' %}"><img src="{% static 'images/b-heart.png' %}"></a>
+            </div>
+        </div>
+    </body>
+</html>

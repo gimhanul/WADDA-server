@@ -1,0 +1,20 @@
+.first, .second, .third{
+    display:inline-block;
+    background-color : rgba(239,209,5, 0.4);
+    font-size : 1.3em;
+    border: 1px;
+}
+/*
+img{
+    width : 150px;
+    height : 150px;
+}*/
+
+body{
+    margin-left: 500px;
+    margin-top : 100px;
+}
+
+.second, .third{
+    margin-top : 50px;
+}
