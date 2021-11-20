@@ -25,7 +25,7 @@
     border-radius: 25px 25px 0px 0px;
 }
 
-.bottom_menu > div {
+.bottom_menu > div, .bottomImg {
     float: left;
     width: 25%;
     height: 100%;

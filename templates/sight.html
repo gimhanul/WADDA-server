@@ -9,6 +9,9 @@
 	<title>왔다 아이가!</title>
 </head>
 <body>
+    <form name="gym" method="POST">
+    {% csrf_token %}
+    
     <div class="main-container">
         <div class="image-section">
             <div class="tour-sight-image">
@@ -40,6 +43,7 @@
             </div>
         </div>
         -->
-    </div>
+        </div>
+    </form>
 </body>
 </html>

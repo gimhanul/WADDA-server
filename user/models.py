@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
-
+from main.models import Sight
 
 class UserManager(BaseUserManager):
 
@@ -36,6 +36,7 @@ class User(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
+    gym = models.ManyToManyField(Sight, blank=True)
     name = models.CharField(max_length=10)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)

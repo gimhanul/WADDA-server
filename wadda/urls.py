@@ -16,7 +16,7 @@ urlpatterns = [
     path('sight/<int:sight_id>/', main.sight, name="sight"),
     path('home/', main.home, name="home"),
     path('schedule/', main.schedule, name="schedule"),
-    path('box/', main.box, name="box"),
+    path('gym/', main.gym, name="gym"),
     path('sights/', main.sights, name="sights"),
 ]
 

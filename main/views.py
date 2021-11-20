@@ -1,8 +1,10 @@
+from typing import ContextManager
 from django.shortcuts import render
 from .models import Sight, Banner
 import json
 import datetime
 from django.core.exceptions import ImproperlyConfigured
+import requests
 
 def weather():
     weather_url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'    
@@ -59,8 +61,14 @@ def q(request, question_id):
 def schedule(request):
     return
 
-def box(request):
-    return
+def gym(request):
+    gyms = request.user.gym
+    print(gyms)
+
+    context = {
+        'gyms' : gyms,
+    }
+    return render(request, 'gym.html', context)
 
 def home(request):
     banner = Banner.objects.all()
@@ -72,11 +80,14 @@ def home(request):
 
 
 def sights(request):
+    
     return render(request, 'sights.html')
 
 def sight(request, sight_id):
     sight = Sight.objects.get(id = sight_id)
-    print(sight.tags)
+    user = request.user
+    if request.method == 'POST':
+        user.gym.add(sight)
 
     context = {
         's': sight

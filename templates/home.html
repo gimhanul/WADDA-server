@@ -4,12 +4,36 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/bar.css' %}">
-	<link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <title>왔다 아이가!</title>
 </head>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+<script>
+
+$.ajax({ 
+    url:"https://wadda1.cafe24.com/tk/load_td.php?detail=1", 
+    type:"POST", 
+    success: function(result) { 
+
+		
+		html2 = "";
+		result = JSON.parse(result);
+	
+		for(i=0;i<result.length;i++){
+			html2 += '<li><a href="https://wadda1.cafe24.com/tk/wadda_gwangwang.php?detail=' + result[i].seq + '"><img src="' + result[i].pic1 + '" alt="스토리1"></a></li>';
+		}
+
+		$("#liclass").html(html2);
+		
+
+        
+    } 
+});
+
+</script>
 
 <body>
     <div class="main-container">
@@ -18,14 +42,9 @@
         </header>
         <div class="main-section">
             <div id="slide-show">
-                <div class="image">
-                    <img src="./mainImg1.jpg" alt="메인 슬라이드쇼">
-                    <div class="image-text">
-                        <h2>가을하늘에</h2>
-                        <h2>은하수</h2>
-                    </div>
-                </div>
-                
+                <div class="image"><img src="../static/image/mainImg1.jpg"></div>
+                <div class="image"><img src="../static/image/mainImg2.jpg"></div>
+                <div class="image"><img src="../static/image/mainImg3.jpg"></div>
             </div>
         </div>
 
@@ -33,7 +52,9 @@
         <section class="story-section">
                 <div class="story-terms_box" tabindex="0" id="divService">
                     <ul>
+                        <!--
                         <li><a href="#"><img src="./storyimg.jpg" alt="스토리1"></a></li>
+                        -->
                     </ul>
                 </div>
             </span>
@@ -58,16 +79,18 @@
 
     <div class="bottom_menu">
         <div>
-            <a href="{% url 'schedule' %}"><img src="{% static 'images/b-date.png' %}"></a>
+            <a href="{% url 'schedule' %}"><img class="bottomImg" src="{% static 'images/b-date.png' %}"></a>
         </div>
         <div>
-            <a href="{% url 'home' %}"><img src="{% static 'images/b-filled-home.png' %}"></a>
+            <a href="{% url 'home' %}"><img class="bottomImg" src="{% static 'images/b-filled-home.png' %}"></a>
         </div>
         <div>
-            <a href="{% url 'sights' %}"><img src="{% static 'images/b-loca.png' %}"></a>
+            <a href="{% url 'sights' %}"><img class="bottomImg" src="{% static 'images/b-loca.png' %}"></a>
         </div>
         <div>
-            <a href="{% url 'box' %}"><img src="{% static 'images/b-heart.png' %}"></a>
+            <a href="{% url 'gym' %}"><img class="bottomImg" src="{% static 'images/b-heart.png' %}"></a>
         </div>
     </div>
+
+    <script src="{% static 'js/home.js' %}"></script>
 </body>

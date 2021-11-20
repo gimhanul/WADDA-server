@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>왔다 아이가!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    </head>
+    <body>
+        <center>
+        <img src = "{% static 'images/logo.png' %}"></img><br><br>
+        <button><a href="{% url 'login' %}">로그인</a></button><br>
+        <button><a href="{% url 'join' %}">회원가입</a></button>
+        </center>
+    </body>
