@@ -99,11 +99,12 @@ WSGI_APPLICATION = 'wadda.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'wadda', # Database 이름
-        'USER': 'hanul', # 데이터베이스에서 사용할 계정
+        'NAME': get_secret("DB_NAME"), # Database 이름
+        'USER': get_secret("DB_USER"), # 데이터베이스에서 사용할 계정
         'PASSWORD': get_secret("DB_PW"), # 계정의 비밀번호
-        'HOST': 'localhost', # 데이테베이스 주소
-        'PORT': '3306', # 데이터베이스 포트, mysql 디폴트값은 3306
+        'HOST': get_secret("DB_HOST"), # 데이테베이스 주소
+        'PORT': get_secret("DB_PW"), # 데이터베이스 포트, mysql 디폴트값은 3306
+        # 이런 정보는 사람마다 배포 환경마다 다를 수 있으므로 setting.json에서 관리하는게 더 나아용!
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
         }

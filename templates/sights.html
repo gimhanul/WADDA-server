@@ -12,7 +12,11 @@
     <body>
         <h1>관광지</h1>
         <div class="box">
+        {% if search == '' %}
             <p class="boxName">전체 관광지</p>
+        {% else %}
+            <p class="boxName">#{{ search }}</p>
+        {% endif %}
             <p class="boxContent">
                 {% for sight in all %}
                 <a href="{% url 'sight' sight.id %}"><img src="{{ sight.image.url }}"></a>
