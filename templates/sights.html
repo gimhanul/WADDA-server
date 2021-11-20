@@ -14,9 +14,9 @@
         <div class="box">
             <p class="boxName">전체 관광지</p>
             <p class="boxContent">
-                <img src="{% static 'images/mainImg1.jpg' %}">
-                <img src="{% static 'images/mainImg1.jpg' %}">
-                <img src="{% static 'images/mainImg1.jpg' %}">
+                {% for sight in all %}
+                <a href="{% url 'sight' sight.id %}"><img src="{{ sight.image.url }}"></a>
+                {% endfor %}
             </p>
         </div>
         <br>

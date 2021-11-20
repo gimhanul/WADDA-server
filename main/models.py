@@ -23,8 +23,6 @@ class Choice(models.Model):
     def __str__(self):
         return self.choice
 
-
-
 #Sight model
 class Sight(models.Model):
     tags = TaggableManager(blank=True)

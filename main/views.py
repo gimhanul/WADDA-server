@@ -6,6 +6,8 @@ import datetime
 from django.core.exceptions import ImproperlyConfigured
 import requests
 
+
+#home
 def weather():
     weather_url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'    
     
@@ -53,23 +55,6 @@ def weather():
     for item in items['item']:
         print('item')
 
-
-
-def q(request, question_id):
-    return
-
-def schedule(request):
-    return
-
-def gym(request):
-    gyms = request.user.gym
-    print(gyms)
-
-    context = {
-        'gyms' : gyms,
-    }
-    return render(request, 'gym.html', context)
-
 def home(request):
     banner = Banner.objects.all()
     #weather = weather()
@@ -79,9 +64,21 @@ def home(request):
     return render(request, 'home.html', context)
 
 
+#schedule
+def schedule(request):
+    return
+
+def q(request, question_id):
+    return
+
+
+#sights
 def sights(request):
-    
-    return render(request, 'sights.html')
+    all = Sight.objects.all()
+    context = {
+        'all' : all,
+    }
+    return render(request, 'sights.html', context)
 
 def sight(request, sight_id):
     sight = Sight.objects.get(id = sight_id)
@@ -93,3 +90,19 @@ def sight(request, sight_id):
         's': sight
     }
     return render(request, 'sight.html', context)
+
+
+
+#gym
+def gym(request):
+    gyms = request.user.gym
+    print(gyms)
+
+    context = {
+        'gyms' : gyms,
+    }
+    return render(request, 'gym.html', context)
+
+
+
+

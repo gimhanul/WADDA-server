@@ -9,7 +9,7 @@
     border: 1px;
 }
 
-.boxContent > img {
+.boxContent img {
     width : 200px;
     height : 200px;
     border-radius: 15%;
