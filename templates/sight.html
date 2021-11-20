@@ -15,7 +15,11 @@
     {% csrf_token %}
 
     <div class="main-container">
+        {% if s in request.user.gym.all %}
+        <img id="gym" onclick="javascript:clickgym()" src="{% static 'images/b-filled-heart.png' %}">
+        {% else %}
         <img id="gym" onclick="javascript:clickgym()" src="{% static 'images/b-heart.png' %}">
+        {% endif %}
         <div class="image-section">
             <div class="tour-sight-image">
                 <div class="image">
@@ -70,7 +74,6 @@
     function send(rt) {
         var data = {
             rt : rt,
-            id : {{ s.id }},
         }
 
         $.ajax({

@@ -75,14 +75,6 @@ def q(request, question_id):
 
 #sights
 def sights(request):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        sightID = (int)(data['id'])
-        sight = Sight.objects.get(id=sightID)
-        if data['rt'] == 'gym':
-            request.user.gym.add(sight)
-        elif data['rt'] == 'nogym':
-            request.user.gym.delete(sight)
     all = Sight.objects.all()
     context = {
         'all' : all,
@@ -91,10 +83,12 @@ def sights(request):
 
 def sight(request, sight_id):
     sight = Sight.objects.get(id = sight_id)
-    user = request.user
     if request.method == 'POST':
-        user.gym.add(sight)
-
+        data = json.loads(request.body)
+        if data['rt'] == 'gym':
+            request.user.gym.add(sight)
+        elif data['rt'] == 'nogym':
+            request.user.gym.remove(sight)
     context = {
         's': sight
     }
