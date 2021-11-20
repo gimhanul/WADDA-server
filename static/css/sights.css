@@ -1,20 +1,17 @@
-.first, .second, .third{
-    display:inline-block;
+.box {
+    margin-bottom: 50px;
+}
+
+.boxName {
+    display: inline-block;
     background-color : rgba(239,209,5, 0.4);
     font-size : 1.3em;
     border: 1px;
 }
-/*
-img{
-    width : 150px;
-    height : 150px;
-}*/
 
-body{
-    margin-left: 500px;
-    margin-top : 100px;
-}
-
-.second, .third{
-    margin-top : 50px;
+.boxContent > img {
+    width : 200px;
+    height : 200px;
+    border-radius: 15%;
+    margin-right: 10px;
 }
