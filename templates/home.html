@@ -68,14 +68,20 @@ $.ajax({
         <section class="weather-section">
                 <div class="weather-terms_box" tabindex="1" id="divService">
                     <ul>
-                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
+                        {% for we in weathers %}
+                        <li>
+                            {% if we.1 == 'sunny' %}
+                            <img class="eachWeather" src="{% static 'images/sunny.jpg' %}">
+                            {% elif we.1 == 'cloudy' %}
+                            <img class="eachWeather" src="{% static 'images/cloudy.jpg' %}">
+                            {% elif we.1 == 'rain' %}
+                            <img class="eachWeather" src="{% static 'images/rain.jpg' %}">
+                            {% elif we.1 == 'snow' %}
+                            <img class="eachWeather" src="{% static 'images/snow.jpg' %}">
+                            {% endif %}
+                            <p>{{ we.0 }}</p>
+                        </li>
+                        {% endfor %}
                     </ul>                       
                 </div>
         </section>

@@ -5,12 +5,11 @@ import json
 import datetime
 from django.core.exceptions import ImproperlyConfigured
 import requests
-import random
 
 
 #home
 def weather():
-    weather_url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst'    
+    weather_url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?'    
     
     with open('secrets.json') as secret_file:
         secretkey = json.load(secret_file)
@@ -44,17 +43,42 @@ def weather():
 
     items = res.json().get('response').get('body').get('items')
 
-    data = dict()
+    data = []
     for item in items['item']:
-        print('item')
+        if item['category'] == 'PTY':
+            #없음(0), 비(1), 비/눈(2), 눈(3), 소나기(4) 
+            weather_code = item['fcstValue']
+
+            if weather_code == '0':
+                continue
+            elif weather_code == '3':
+                weather_state = 'snow'
+            else:
+                weather_state = 'rain'
+
+        elif item['category'] == 'SKY':
+        #맑음(1), 구름많음(3), 흐림(4)
+            weather_code = item['fcstValue']
+
+            if weather_code == '1':
+                weather_state = 'sunny'
+            else:
+                weather_state = 'cloudy'
+        
+        elif item['category'] == 'SNO':
+            data.append((item['fcstTime'], weather_state))
+
+    return data
+
 
 def home(request):
     banner = Banner.objects.all()
     sights = Sight.objects.all().order_by('-id')
-    weather()
+    weathers = weather()
     context = {
         'banner' : banner,
         'sights' : sights,
+        'weathers' : weathers,
     }
     return render(request, 'home.html', context)
 
