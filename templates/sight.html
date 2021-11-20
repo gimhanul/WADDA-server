@@ -5,15 +5,17 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sight.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<title>왔다 아이가!</title>
 </head>
 <body>
     <form name="gym" method="POST">
     {% csrf_token %}
-    
+
     <div class="main-container">
+        <img id="gym" onclick="javascript:clickgym()" src="{% static 'images/b-heart.png' %}">
         <div class="image-section">
             <div class="tour-sight-image">
                 <div class="image">
@@ -63,3 +65,36 @@
     </div>
 </body>
 </html>
+
+<script>
+    function send(rt) {
+        var data = {
+            rt : rt,
+            id : {{ s.id }},
+        }
+
+        $.ajax({
+            url : "{% url 'sight' s.id %}",
+            type : "POST",
+            headers : {
+                'X-CSRFTOKEN' : '{{ csrf_token }}'
+            },
+            dataType : "json",
+            data : JSON.stringify(data),
+            async : false,
+        });
+
+    }
+
+    function clickgym() {
+        now = document.getElementById('gym');
+        if(now.src.includes('b-heart.png')) {
+            now.src = "{% static 'images/b-filled-heart.png' %}";
+            send('gym');
+        }
+        else {
+            now.src = "{% static 'images/b-heart.png' %}";
+            send('nogym');
+        }
+}
+</script>

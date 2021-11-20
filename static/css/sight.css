@@ -1,0 +1,203 @@
+:root{
+	--body-background-color: FBF8E8;
+	--font-color: #4e4e4e;
+	--border-ivory-color : #FBF8E8;
+	--wadda-white-color: #FFFFFF;
+	--wadda-white-border-color: #E5E5E5;
+	--wadda-green-color: #6F8D74;
+}
+
+
+*{
+	margin:0;
+	padding:0;
+    word-break: keep-all;
+	
+}
+ul{list-style:none;}
+
+/* 스크롤바 설정*/
+::-webkit-scrollbar{
+    width: 6px;
+	height: 6px;
+}
+/* 스크롤바 막대 설정*/
+::-webkit-scrollbar-thumb{
+    height: 17%;
+    background-color: #6F8D74;
+    border-radius: 10px;  
+}
+/* 스크롤바 뒷 배경 설정*/
+::-webkit-scrollbar-track{
+    background-color: #ffffff;
+	opacity: 0.0;
+}
+
+body{
+	background:var(--body-background-color);
+	
+}
+
+.main-container{
+	list-style:none;
+	width:100%;
+	max-width: 700px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-top: 21px;
+	margin: 0 auto;
+}
+.main-container .main-wrap{
+	width:768px;
+
+}
+
+.header-container{
+	width: 100%;
+	height: 100px;
+	align-items: center;
+}
+.main-container .main-wrap .sel-lang-wrap .lang-select
+{
+	width: 96px;
+	height: 30px;
+	color: var(--font-color);
+	border: solid 1px var(--border-ivory-color);
+}
+.main-container .main-wrap .logo-wrap{
+	padding-top:55px;
+}
+.main-container .main-wrap .logo-warp
+{
+	width: 200px;
+	height: 40px;
+}
+.logo-warp img{
+	margin:55px;
+	width: 100px;
+	height: 100px;
+	align-items:center;
+}
+.main-container .main-wrap header .sel-lang-wrap{
+	display:flex;
+	justify-content:flex-end;
+}
+
+.main-container .main-wrap header .logo-wrap{
+	display:flex;	
+	flex-direction: column;
+	align-items: center;
+}
+.login-input-section-wrap{
+	padding-top: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+input:focus{
+	outline:#FBF8E8;
+}
+
+
+.tour-sight-image {
+	position: relative;
+	width: 100%;
+}
+
+.image-section{
+	width:100%;
+	height:20%;
+	display:flex;
+	flex-direction:column;
+}
+.info-section{
+	width:96%;
+	height: auto;
+	display:flex;
+	flex-direction:column;
+	margin-top: 21px;
+	float: left;
+	margin-top: 5%;
+	margin-left: 2%;
+	margin-right: 2%;
+	font-size: 18px;
+}
+.info-section img{
+	width: 28px;
+	height: 28px;
+	margin-right: 3%;
+	float: left;
+}
+.info-image-section{
+	width: 96%;
+	height: auto;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-top: 5%;
+}
+#sAddress {
+	width: 100%;
+	height: 10%;
+	margin-top: 3px;
+}
+#sNumber {
+	width: 100%;
+	height: 10%;
+	margin-top: 3px;
+}
+#sOpen {
+	width: 100%;
+	height: 10%;
+	margin-top: 3px;
+}
+#sTime {
+	width: 100%;
+	height: 10%;
+	margin-top: 3px;
+}
+#sInfo {
+	width: 100%;
+	height: 20%;
+	margin-top: 10px;
+}
+#sMainImg{
+	align-items: center; 
+	width: 100%; 
+	max-height: 300px; 
+	overflow: hidden;
+}
+#sMainImg img{
+	width: 100%; 
+	max-height: initial; 
+	margin-top: 0px;
+}
+#sImg{
+	align-items: center; 
+	width: 100%; 
+	height: 10%; 
+	margin-top: 3px;
+	float: left;
+}
+
+#SMainImg{
+	width : 5%;
+	height :5%;
+}
+
+button{
+	width : 45px;
+	height: 40px;
+	border : 0;
+	background-color: #FFFFFF;
+	position : absolute;
+	margin-left : -40px;
+	border-radius: 5px;
+}
+
+#gym {
+    position: absolute;
+    right: 5%;
+    transform: translateY(20px);
+    z-index: 9999;
+}

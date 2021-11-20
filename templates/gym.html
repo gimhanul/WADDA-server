@@ -1,0 +1,37 @@
+
+</html><!DOCTYPE html>
+{% load static%}
+<head>
+    <meta charset="utf-8">
+    <title>왔다 아이가!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bar.css' %}">
+	<link rel="stylesheet" href="{% static 'css/sights.css' %}">
+</head>
+<body>
+    <h1>내 찜 목록</h1>
+    <div class="box">
+        <p class="boxContent">
+            {% for sight in request.user.gym.all %}
+            <a href="{% url 'sight' sight.id %}"><img src="{{ sight.image.url }}"></a>
+            {% endfor %}
+        </p>
+    </div>
+    <br>
+
+    <div class="bottom_menu">
+        <div>
+            <a href="{% url 'schedule' %}"><img src="{% static 'images/b-date.png' %}"></a>
+        </div>
+        <div>
+            <a href="{% url 'home' %}"><img src="{% static 'images/b-home.png' %}"></a>
+        </div>
+        <div>
+            <a href="{% url 'sights' %}"><img src="{% static 'images/b-loca.png' %}"></a>
+        </div>
+        <div>
+            <a href="{% url 'gym' %}"><img src="{% static 'images/b-filled-heart.png' %}"></a>
+        </div>
+    </div>
+</body>

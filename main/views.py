@@ -5,6 +5,7 @@ import json
 import datetime
 from django.core.exceptions import ImproperlyConfigured
 import requests
+from user.models import User
 
 
 #home
@@ -74,6 +75,14 @@ def q(request, question_id):
 
 #sights
 def sights(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        sightID = (int)(data['id'])
+        sight = Sight.objects.get(id=sightID)
+        if data['rt'] == 'gym':
+            request.user.gym.add(sight)
+        elif data['rt'] == 'nogym':
+            request.user.gym.delete(sight)
     all = Sight.objects.all()
     context = {
         'all' : all,
@@ -95,13 +104,7 @@ def sight(request, sight_id):
 
 #gym
 def gym(request):
-    gyms = request.user.gym
-    print(gyms)
-
-    context = {
-        'gyms' : gyms,
-    }
-    return render(request, 'gym.html', context)
+    return render(request, 'gym.html')
 
 
 
