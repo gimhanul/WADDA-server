@@ -5,7 +5,7 @@ import json
 import datetime
 from django.core.exceptions import ImproperlyConfigured
 import requests
-from user.models import User
+import random
 
 
 #home
@@ -15,13 +15,11 @@ def weather():
     with open('secrets.json') as secret_file:
         secretkey = json.load(secret_file)
     service_key = secretkey["SERVICE_KEY"]
-
     now = datetime.datetime.now()
     #(년, 월, 일, 시, 분, 초, 머있음또)
     base_date = now.strftime('%Y%m%d')
-    
-    nx = 96
-    ny = 76
+    nx = '96'
+    ny = '76'
 
     if now.hour<5 or (now.hour==5 and now.minute<=10): # 2시 11분~5시 10분 사이
         base_time="0200"
@@ -40,13 +38,7 @@ def weather():
     else: # 23시 11분~23시 59분
         base_time="2300"
 
-    payload = "serviceKey=" + service_key + "&" +\
-        "numOfRows" + 290 + "&" +\
-        "dataType=json" + "&" +\
-        "base_date=" + base_date + "&" +\
-        "base_time=" + base_time + "&" +\
-        "nx=" + nx + "&" +\
-        "ny=" + ny
+    payload = "serviceKey=" + service_key + "&" + "numOfRows=" + "290" + "&" + "dataType=json" + "&" + "base_date=" + base_date + "&" + "base_time=" + base_time + "&" + "nx=" + nx + "&" + "ny=" + ny
     
     res = requests.get(weather_url + payload)
 
@@ -58,9 +50,11 @@ def weather():
 
 def home(request):
     banner = Banner.objects.all()
-    #weather = weather()
+    sights = Sight.objects.all().order_by('-id')
+    weather()
     context = {
-        'banner' : banner, 
+        'banner' : banner,
+        'sights' : sights,
     }
     return render(request, 'home.html', context)
 

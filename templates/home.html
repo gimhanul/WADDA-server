@@ -52,13 +52,13 @@ $.ajax({
             </div>
         </div>
 
-        <h2>둘러보기</h2>
+        <h2>최근 등록된 관광지</h2>
         <section class="story-section">
                 <div class="story-terms_box" tabindex="0" id="divService">
                     <ul>
-                        <!--
-                        <li><a href="#"><img src="./storyimg.jpg" alt="스토리1"></a></li>
-                        -->
+                        {% for sight in sights%}
+                        <li><a href="{% url 'sight' sight.id %}"><img src="{{ sight.image.url }}"></a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </span>
