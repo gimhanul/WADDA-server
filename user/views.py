@@ -35,21 +35,13 @@ def userlogin(request):
         user = authenticate(email=email, password=password)
         if user:
             login(request, user)
-            return redirect('wadda')
+            return redirect('home')
     else:
         form = AuthenticationForm()
     context = {
         'form': form,
     }
     return render(request, 'login.html', context)
-
-
-
-#main
-def wadda(request):
-    if request.method == 'POST':
-        return
-    return render(request, 'main.html')
 
 
 #setting

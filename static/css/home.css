@@ -139,13 +139,13 @@ footer .copyright-wrap span{
 
 
 .main-section{
-	width:100%;
-	height:20%;
+	width: 100%;
+	height: 300px;
 	/* display:flex; */
     overflow: auto;
 	flex-direction:column;
 	align-items:center;
-	margin-top: 21px;
+	margin-top: 90px;
 }
 .weather-section{
 	width:100%; 
@@ -240,10 +240,22 @@ footer .copyright-wrap span{
 	display:flex;
 	flex-direction:column;
 }
-img{ 
+
+.image > img { 
 	align-items: center; 
 	width: 100%; 
 	height: 100%; 
 	max-height: 300px;
 }
 
+#lightlogo {
+	position: absolute;
+	left: 5%;
+	transform: translateY(50%);
+}
+
+#setting {
+	position: absolute;
+	right: 5%;
+	transform: translateY(100%);
+}

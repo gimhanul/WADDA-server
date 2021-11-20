@@ -36,19 +36,23 @@ $.ajax({
 </script>
 
 <body>
+    <div class="title" style="box-shadow: 0;">
+        <img id="lightlogo" src="{% static 'images/lightlogo.png' %}">
+        <a href="{% url 'setting' %}"><img id="setting" src="{% static 'images/setting.png' %}"></a>
+    </div>
     <div class="main-container">
         <header>
 
         </header>
         <div class="main-section">
             <div id="slide-show">
-                <div class="image"><img src="../static/image/mainImg1.jpg"></div>
-                <div class="image"><img src="../static/image/mainImg2.jpg"></div>
-                <div class="image"><img src="../static/image/mainImg3.jpg"></div>
+                <div class="image"><img src="{% static 'images/mainImg1.jpg' %}"></div>
+                <div class="image"><img src="{% static 'images/mainImg2.jpg' %}"></div>
+                <div class="image"><img src="{% static 'images/mainImg3.jpg' %}"></div>
             </div>
         </div>
 
-        <h2>주변 관광지</h2>
+        <h2>둘러보기</h2>
         <section class="story-section">
                 <div class="story-terms_box" tabindex="0" id="divService">
                     <ul>
@@ -64,14 +68,14 @@ $.ajax({
         <section class="weather-section">
                 <div class="weather-terms_box" tabindex="1" id="divService">
                     <ul>
-                        <li><a href="#"><img src="./weather-bright.jpg" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="./weather-bright.jpg" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="./weather-bright.jpg" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="./weather-bright.jpg" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="./weather-bright.jpg" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="./weather-bright.jpg" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="./weather-bright.jpg" alt="날씨1"></a></li>
-                        <li><a href="#"><img src="./weather-bright.jpg" alt="날씨1"></a></li>
+                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
+                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
+                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
+                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
+                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
+                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
+                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
+                        <li><a href="#"><img src="{% static 'images/weather-bright.jpg' %}" alt="날씨1"></a></li>
                     </ul>                       
                 </div>
         </section>
@@ -79,16 +83,16 @@ $.ajax({
 
     <div class="bottom_menu">
         <div>
-            <a href="{% url 'schedule' %}"><img class="bottomImg" src="{% static 'images/b-date.png' %}"></a>
+            <a href="{% url 'schedule' %}"><img src="{% static 'images/b-date.png' %}"></a>
         </div>
         <div>
-            <a href="{% url 'home' %}"><img class="bottomImg" src="{% static 'images/b-filled-home.png' %}"></a>
+            <a href="{% url 'home' %}"><img src="{% static 'images/b-filled-home.png' %}"></a>
         </div>
         <div>
-            <a href="{% url 'sights' %}"><img class="bottomImg" src="{% static 'images/b-loca.png' %}"></a>
+            <a href="{% url 'sights' %}"><img src="{% static 'images/b-loca.png' %}"></a>
         </div>
         <div>
-            <a href="{% url 'gym' %}"><img class="bottomImg" src="{% static 'images/b-heart.png' %}"></a>
+            <a href="{% url 'gym' %}"><img src="{% static 'images/b-heart.png' %}"></a>
         </div>
     </div>
 

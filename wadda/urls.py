@@ -11,13 +11,13 @@ urlpatterns = [
     path('', user.index, name="index"),
     path('join/', user.join, name="join"),
     path('login/', user.userlogin, name="login"),
-    path('wadda/', user.wadda, name="wadda"),
     path('q/<int:question_id>/', main.q, name="q"),
     path('sight/<int:sight_id>/', main.sight, name="sight"),
     path('home/', main.home, name="home"),
     path('schedule/', main.schedule, name="schedule"),
     path('gym/', main.gym, name="gym"),
     path('sights/', main.sights, name="sights"),
+    path('setting/', user.setting, name="setting"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
