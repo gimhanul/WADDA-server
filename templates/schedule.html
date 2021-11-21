@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>맞춤 추천 코스</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/schedule.css' %}">
+</head>
+
+<body>
+    <h1>일정</h1>
+    <center>
+        <div id="add">
+            <h3>추가하기</h3>
+            <img src="{% static 'images/add.png' %}"></button>
+        </div>
+        
+        <div id="soon">
+            <h3>예정</h3>
+            <a href=""><img src="../static/image/recom_2.png"></a>
+        </div>
+
+        <div id="memory">
+            <h3>추억</h3>
+            <a href=""><img src="../static/image/recom_2.png"></a>
+        </div>
+    </center>
+
+    <div class="bottom_menu">
+        <div>
+            <a href="{% url 'schedule' %}"><img src="{% static 'images/b-filled-date.png' %}"></a>
+        </div>
+        <div>
+            <a href="{% url 'home' %}"><img src="{% static 'images/b-home.png' %}"></a>
+        </div>
+        <div>
+            <a href="{% url 'sights' %}"><img src="{% static 'images/b-loca.png' %}"></a>
+        </div>
+        <div>
+            <a href="{% url 'gym' %}"><img src="{% static 'images/b-heart.png' %}"></a>
+        </div>
+    </div>
+</body>
+</html>

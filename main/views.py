@@ -42,7 +42,8 @@ def weather():
     res = requests.get(weather_url + payload)
 
     items = res.json().get('response').get('body').get('items')
-
+    print(items)
+    
     data = []
     for item in items['item']:
         if item['category'] == 'PTY':
@@ -66,7 +67,8 @@ def weather():
                 weather_state = 'cloudy'
         
         elif item['category'] == 'SNO':
-            data.append((item['fcstTime'], weather_state))
+            fcstTime = item['fcstTime']
+            data.append((fcstTime[:2], weather_state))
 
     return data
 
@@ -85,7 +87,7 @@ def home(request):
 
 #schedule
 def schedule(request):
-    return
+    return render(request, 'schedule.html')
 
 def q(request, question_id):
     return
