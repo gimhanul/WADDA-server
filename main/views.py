@@ -99,10 +99,19 @@ def q(request, question_id):
 
 #sights
 def sights(request):
-    all = Sight.objects.all()
+
+    query = request.GET.get('search', '')
+
+    if (query == ''):
+        all = Sight.objects.all()
+    else:
+        all = Sight.objects.filter(tags__name__in=[query])
+
     context = {
-        'all' : all,
+        'all': all,
+        'search': query,
     }
+
     return render(request, 'sights.html', context)
 
 def sight(request, sight_id):
