@@ -16,10 +16,12 @@ def weather():
     service_key = secretkey["SERVICE_KEY"]
     now = datetime.datetime.now()
     #(년, 월, 일, 시, 분, 초, 머있음또)
-    base_date = now.strftime('%Y%m%d')
     nx = '96'
     ny = '76'
 
+    if now.hour<2 or (now.hour==2 and now.minute<=10):
+        now = now.today() - datetime.timedelta(days=1)
+        base_time="2300"
     if now.hour<5 or (now.hour==5 and now.minute<=10): # 2시 11분~5시 10분 사이
         base_time="0200"
     elif now.hour<8 or (now.hour==8 and now.minute<=10): # 5시 11분~8시 10분 사이
@@ -37,12 +39,14 @@ def weather():
     else: # 23시 11분~23시 59분
         base_time="2300"
 
+
+
+    base_date = now.strftime('%Y%m%d')
     payload = "serviceKey=" + service_key + "&" + "numOfRows=" + "290" + "&" + "dataType=json" + "&" + "base_date=" + base_date + "&" + "base_time=" + base_time + "&" + "nx=" + nx + "&" + "ny=" + ny
     
     res = requests.get(weather_url + payload)
 
     items = res.json().get('response').get('body').get('items')
-    print(items)
     
     data = []
     for item in items['item']:
