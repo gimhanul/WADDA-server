@@ -201,3 +201,8 @@ button{
     transform: translateY(20px);
     z-index: 9999;
 }
+
+.tags {
+	text-decoration: none;
+	color: skyblue;
+}

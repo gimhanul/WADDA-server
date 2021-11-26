@@ -33,7 +33,7 @@
         <div class="info-section">
             <div id="sTags">
                 {% for tag in s.tags.all %}
-                <a href="{% url 'sights' %}?search={{ tag.name }}">#{{ tag.name }}</a>
+                <a href="{% url 'sights' %}?search={{ tag.name }}" class="tags">#{{ tag.name }}</a>
                 {% endfor %}
             </div>
             <div id="sAddress"><img src="{% static 'images/location.png' %}">{{ s.address }}</div>

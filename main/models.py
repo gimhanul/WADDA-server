@@ -1,3 +1,4 @@
+from functools import _Descriptor
 from django.db import models
 from taggit.managers import TaggableManager
 from django.db.models.deletion import CASCADE
@@ -36,3 +37,20 @@ class Sight(models.Model):
 
     def __str__(self):
         return self.name
+
+#Schedule
+class Schedule(models.Model):
+    start = models.DateField()
+    end = models.DateField()
+    title = models.CharField(max_length=20)
+    description = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.title
+
+class EachSchedule(models.Model):
+    sight = models.ForeignKey(Sight, on_delete=CASCADE)
+    go = models.DateTimeField()
+
+    def __str__(self):
+        return self.sight
