@@ -1,6 +1,6 @@
 from typing import ContextManager
-from django.shortcuts import render
-from .models import Sight, Banner
+from django.shortcuts import redirect, render
+from .models import Sight, Banner, Question, Choice
 import json
 import datetime
 from django.core.exceptions import ImproperlyConfigured
@@ -94,8 +94,21 @@ def schedule(request):
     return render(request, 'schedule.html')
 
 def q(request, question_id):
-    return
+    question = Question.objects.get(id=question_id)
+    choices = Choice.objects.filter(question_id=question_id)
+    context = {
+        'question' : question,
+        'choices' : choices,
+    }
 
+    if request.method == 'POST':
+        question_id = question_id + 1
+        if question_id >= 4:
+            return redirect('/schedule') #나주엥수정
+        return redirect('/q/%s' %question_id)
+
+
+    return render(request, 'q.html', context)
 
 #sights
 def sights(request):

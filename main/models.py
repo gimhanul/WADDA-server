@@ -1,4 +1,3 @@
-from functools import _Descriptor
 from django.db import models
 from taggit.managers import TaggableManager
 from django.db.models.deletion import CASCADE
