@@ -104,7 +104,7 @@ def q(request, question_id):
     if request.method == 'POST':
         question_id = question_id + 1
         if question_id >= 4:
-            return redirect('/schedule') #나주엥수정
+            return redirect('/date') #나주엥수정
         return redirect('/q/%s' %question_id)
 
 

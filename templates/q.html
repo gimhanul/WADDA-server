@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>왔다 아이가</title>
 	<link rel="stylesheet" href="{% static 'css/base.css' %}">
-	<script src="wadda.js"></script>
+	<script src="{% static 'js/q.js' %}"></script>
     <style>
         input[type=radio] { display:none; margin:10px }
 
@@ -17,7 +17,7 @@
 		<div class="main-wrap">
             <header>
                 <div class="logo-wrap">
-                    <img src="wadda_logo.jpg" alt="wadda-logo" width=auto height="200px">
+                    <img src="{% static 'images/logo.png' %}" alt="wadda-logo" width=auto height="200px">
                     <h1>{{ question.question }}</h1>
                 </div>
             </header>
@@ -26,8 +26,9 @@
                     <ul>
                         {% for choice in choices %}
                         <li>
-                            <input type="radio" name="answer" id="answer-a">
-                            <label for="answer-a">{{ choice.choice }}</label>
+                            <button id="answer-a" onclick="javascript:send( {{ question.id }}, {{ choice.id }} )">
+                                {{ choice.choice }}
+                            </button> 
                         </li>
                         {% endfor %}
                     </ul>
